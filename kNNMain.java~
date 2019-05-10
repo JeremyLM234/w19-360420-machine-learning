@@ -10,45 +10,26 @@ public class kNNMain{
 
     // TASK 1: Use command line arguments to point DataSet.readDataSet method to
     // the desired file. Choose a given DataPoint, and print its features and label
-    
-    int rowNum = 140;
-    
+
     String dataPath = args[0];
-    
-    DataSet ds = new DataSet();
-    
-    List<DataPoint> myList = ds.readDataSet(dataPath);
-    
-    DataPoint dp = myList.get(rowNum - 1);
-    
-    String stringLabel = dp.getLabel();
-    double[] dataArray = dp.getX();
-    
-    System.out.println("Row " + rowNum + ":");
-    
-    for (int i = 1; i < dataArray.length; i++)
-      System.out.print(dataArray[i] + "\t");
-    System.out.println();
-    
-    System.out.println(stringLabel);
+    File fileX = breastCancer.csv;
+    List<DataPoint> myList = new ArrayList<DataPoint>();
+    Dataset ds = new Dataset (fileX);
+    Datapoint dp = myList.get(7);
+    myList = ds.readDataSet(dataPath);
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
-    
-    double testFraction = 0.1;
-    double trainingFraction = 0.5;
-    
-    List<DataPoint> testSet = ds.getTestSet(myList, testFraction);
-    List<DataPoint> trainingSet = ds.getTrainingSet(myList, trainingFraction);
-    
+
+
     // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
-    
-    //removed
-    
+
+
+
     // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
     // and returns the Euclidean distance between those two points (as a double)
-    
-    
-    
+
+
+
     // TASK 5: Use the KNNClassifier class to determine the k nearest neighbors to a given DataPoint,
     // and make a print a predicted target label
 
